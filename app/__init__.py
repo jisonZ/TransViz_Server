@@ -4,13 +4,14 @@ import os
 # blueprints
 from app.errors.handlers import errors
 from app.home.routes import home
-
+from app.utils.routes import utils
 
 app = Flask(__name__)
 app.config.from_object(DevelopmentConfig)
 
 app.register_blueprint(errors)
 app.register_blueprint(home)
+app.register_blueprint(utils)
 
 
 def create_app():
@@ -18,10 +19,12 @@ def create_app():
     app.config.from_object(DevelopmentConfig if os.environ.get(
         "PRODUCTION").lower() == 'true' else DevelopmentConfig)
 
-    from app.errors.handlers import errors
-    from app.home.routes import home
+    # from app.errors.handlers import errors
+    # from app.home.routes import home
+    # from app.utils.routes import utils
 
-    app.register_blueprint(errors)
-    app.register_blueprint(home)
+    # app.register_blueprint(errors)
+    # app.register_blueprint(home)
+    # app.register_blueprint(utils)
 
     return app
