@@ -6,10 +6,12 @@ from app.errors.handlers import errors
 from app.home.routes import home
 from app.utils.routes import utils
 from app.components.routes import components, component_init
+from app.modelflow.routes import model 
 
 # import db and models
 from .extensions import db
 from .entities.models import *
+from flask_cors import CORS, cross_origin
 
 # app = Flask(__name__)
 # app.config.from_object(DevelopmentConfig)
@@ -21,6 +23,8 @@ from .entities.models import *
 
 def create_app():
     app = Flask(__name__)
+    cors = CORS(app)
+    app.config['CORS_HEADERS'] = 'Content-Type'
     app.config.from_object(DevelopmentConfig)
 
     # app.config.from_object(DevelopmentConfig if os.environ.get(
@@ -30,6 +34,7 @@ def create_app():
     app.register_blueprint(home)
     app.register_blueprint(utils)
     app.register_blueprint(components)
+    app.register_blueprint(model)
 
     # initialize
     component_init()
