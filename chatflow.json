@@ -1,0 +1,16 @@
+[
+  {
+    "id": "34b3d5ac-84c3-4fcf-a02a-e4f080c6a553",
+    "name": "test",
+    "flowData": "{\"nodes\":[{\"width\":300,\"height\":579,\"id\":\"airtableAgent_0\",\"position\":{\"x\":1058.7161712247325,\"y\":463.28174791914387},\"type\":\"customNode\",\"data\":{\"label\":\"Airtable Agent\",\"name\":\"airtableAgent\",\"version\":1,\"type\":\"AgentExecutor\",\"category\":\"Agents\",\"icon\":\"/home/haochenz/TransViz/node_modules/flowise-components/dist/nodes/agents/AirtableAgent/airtable.svg\",\"description\":\"Agent used to to answer queries on Airtable table\",\"baseClasses\":[\"AgentExecutor\",\"BaseChain\",\"Runnable\"],\"credential\":\"\",\"inputs\":{\"model\":\"\",\"baseId\":\"\",\"tableId\":\"\",\"returnAll\":true,\"limit\":100},\"filePath\":\"/home/haochenz/TransViz/node_modules/flowise-components/dist/nodes/agents/AirtableAgent/AirtableAgent.js\",\"inputAnchors\":[{\"label\":\"Language Model\",\"name\":\"model\",\"type\":\"BaseLanguageModel\",\"id\":\"airtableAgent_0-input-model-BaseLanguageModel\"}],\"inputParams\":[{\"label\":\"Connect Credential\",\"name\":\"credential\",\"type\":\"credential\",\"credentialNames\":[\"airtableApi\"],\"id\":\"airtableAgent_0-input-credential-credential\"},{\"label\":\"Base Id\",\"name\":\"baseId\",\"type\":\"string\",\"placeholder\":\"app11RobdGoX0YNsC\",\"description\":\"If your table URL looks like: https://airtable.com/app11RobdGoX0YNsC/tblJdmvbrgizbYICO/viw9UrP77Id0CE4ee, app11RovdGoX0YNsC is the base id\",\"id\":\"airtableAgent_0-input-baseId-string\"},{\"label\":\"Table Id\",\"name\":\"tableId\",\"type\":\"string\",\"placeholder\":\"tblJdmvbrgizbYICO\",\"description\":\"If your table URL looks like: https://airtable.com/app11RobdGoX0YNsC/tblJdmvbrgizbYICO/viw9UrP77Id0CE4ee, tblJdmvbrgizbYICO is the table id\",\"id\":\"airtableAgent_0-input-tableId-string\"},{\"label\":\"Return All\",\"name\":\"returnAll\",\"type\":\"boolean\",\"default\":true,\"additionalParams\":true,\"description\":\"If all results should be returned or only up to a given limit\",\"id\":\"airtableAgent_0-input-returnAll-boolean\"},{\"label\":\"Limit\",\"name\":\"limit\",\"type\":\"number\",\"default\":100,\"additionalParams\":true,\"description\":\"Number of results to return\",\"id\":\"airtableAgent_0-input-limit-number\"}],\"outputs\":{},\"outputAnchors\":[{\"id\":\"airtableAgent_0-output-airtableAgent-AgentExecutor|BaseChain|Runnable\",\"name\":\"airtableAgent\",\"label\":\"AgentExecutor\",\"type\":\"AgentExecutor | BaseChain | Runnable\"}],\"id\":\"airtableAgent_0\",\"selected\":false},\"positionAbsolute\":{\"x\":1058.7161712247325,\"y\":463.28174791914387}}],\"edges\":[],\"viewport\":{\"x\":-510.99073637933725,\"y\":-340.74430836866065,\"zoom\":1.320458470717538}}",
+    "deployed": false,
+    "isPublic": false,
+    "apikeyid": null,
+    "chatbotConfig": null,
+    "apiConfig": null,
+    "analytic": null,
+    "createdDate": "2024-02-01T14:27:56.000Z",
+    "updatedDate": "2024-02-01T14:27:56.000Z",
+    "category": null
+  }
+]

@@ -23,6 +23,7 @@ class TestingConfig(BaseConfig):
 class DevelopmentConfig(BaseConfig):
     """dev config"""
     DEBUG = True
+    PORT = 6000
     SQLALCHEMY_DATABASE_URI = ''
 
 

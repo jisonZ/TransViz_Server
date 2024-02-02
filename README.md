@@ -28,5 +28,7 @@ We suggest that you start by typing:
         source venv/bin/activate
         pip install -r requirements.txt
         python run.py
+Or:
+        flask run--debug
 
 Happy hacking!
