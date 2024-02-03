@@ -8,12 +8,12 @@ def component_init():
   '''
   load pesudo data for nodes and credentials
   '''
-  f = open('app/components/nodes.json')
+  f = open('/home/haochenz/TransVizServer/app/components/nodes.json')
   global nodesData
   nodesData = json.load(f)
   f.close()
 
-  f = open('app/components/components-credentials.json')
+  f = open('/home/haochenz/TransVizServer/app/components/components-credentials.json')
   global credentials
   credentials = json.load(f)
   f.close()

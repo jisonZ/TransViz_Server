@@ -17,16 +17,21 @@ from sqlalchemy.orm import Mapped, mapped_column
 #   updatedDate = db.Column(mysql.DATETIME(timezone=True), default=func.now())
 #   categpry = db.Column(db.String(100), nullable=True)
 
+class User(db.Model):
+    id: Mapped[int] = mapped_column(primary_key=True)
+    username: Mapped[str] = mapped_column(unique=True)
+    email: Mapped[str]
+
 class modelflow(db.Model):
-  id: Mapped[int] = mapped_column(db.Integer, primary_key=True)
-  name: Mapped[str] = mapped_column(db.String(50), nullable=False)
+  id: Mapped[str] = mapped_column(db.Text, primary_key=True)
+  name: Mapped[str] = mapped_column(db.Text, nullable=False)
   flowData: Mapped[str] = mapped_column(db.Text, nullable=False)
   deployed: Mapped[bool] = mapped_column(db.Boolean, default=False)
   isPublic: Mapped[bool] = mapped_column(db.Boolean, default=False)
-  apikeyid: Mapped[str] = mapped_column(db.String(100), nullable=True)
-  chatbotConfig: Mapped[str] = mapped_column(db.Text, nullable=True)
-  apiConfig: Mapped[str] = mapped_column(db.Text, nullable=True)
-  analytic: Mapped[str] = mapped_column(db.Text, nullable=True)
-  createdDate: Mapped[str] = mapped_column(mysql.DATETIME(timezone=True), default=func.now())
-  updatedDate: Mapped[str] = mapped_column(mysql.DATETIME(timezone=True), default=func.now())
-  categpry: Mapped[str] = mapped_column(db.String(100), nullable=True)
+  # apikeyid: Mapped[str] = mapped_column(db.String(100), nullable=True)
+  # chatbotConfig: Mapped[str] = mapped_column(db.Text, nullable=True)
+  # apiConfig: Mapped[str] = mapped_column(db.Text, nullable=True)
+  # analytic: Mapped[str] = mapped_column(db.Text, nullable=True)
+  # createdDate: Mapped[str] = mapped_column(mysql.DATETIME(timezone=True), default=func.now())
+  # updatedDate: Mapped[str] = mapped_column(mysql.DATETIME(timezone=True), default=func.now())
+  # category: Mapped[str] = mapped_column(db.String(100), nullable=True)
