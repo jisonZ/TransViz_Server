@@ -30,5 +30,5 @@ We suggest that you start by typing:
         python run.py
 Or:
         flask run--debug
-
+Great Progress!
 Happy hacking!
