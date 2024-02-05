@@ -24,14 +24,17 @@ Inside that directory you can run several commands:
 
 
 We suggest that you start by typing:
+
         cd TransVizServer
         source venv/bin/activate
         pip install -r requirements.txt
         python run.py
 Or:
+
         flask run--debug
 
-Use the following command for testing
+Use the following command for testing:
+
         pytest -s
 
 Happy hacking!

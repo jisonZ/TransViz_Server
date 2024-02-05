@@ -34,3 +34,24 @@ def save_chatflow():
   if request.method == 'GET':
     allmodel = modelflow.query.all()
     return jsonify(allmodel)
+
+@model.route('/api/v1/chatflows/<int:id>', methods=['GET', 'PUT', 'DELETE'])
+def mod_chatflow(id):
+  '''
+  modify chatflow
+  '''
+  model = db.session.execute(db.select(modelflow).filter_by(id=id)).scalar_one()
+
+  if request.method == 'GET':
+    return jsonify(model)
+  
+  if request.method == 'PUT':
+    model.name = request.json['name']
+    model.flowData = request.json['flowData']
+    db.session.commit()
+    return jsonify(model), 201
+  
+  if request.method == 'DELETE':
+    db.session.delete(model)
+    db.session.commit()
+    return jsonify(model), 204
