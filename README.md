@@ -30,7 +30,8 @@ We suggest that you start by typing:
         python run.py
 Or:
         flask run--debug
-Great Progress!
-Testing! Yayy!
-Another testing!
+
+Use the following command for testing
+        pytest -s
+
 Happy hacking!

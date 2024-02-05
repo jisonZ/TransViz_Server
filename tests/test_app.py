@@ -1,22 +1,29 @@
-import json 
+import json
+from app.entities.models import modelflow
 
-def test_modelflow_post(client, app):
-  print("test_modelflow_post")
+
+def test_modelflow(client, app):
+  #TODO: add more testing!!!
   # response = client.get('/api/v1/modelflow')
-  f = open('/home/haochenz/TransVizServer/tests/chatflow_post.json')
-  chatflowData = json.load(f)
-  f.close()
-  print(chatflowData)
-  response = client.post('http://localhost:3000/api/v1/chatflows', data=chatflowData)
+  testdata1 = {
+      "name": "test1",
+      "deployed": False,
+      "isPublic": False,
+      "flowData": '{"nodes":[{"width":300,"height":277,"id":"aiPlugin…ges":[],"viewport":{"x":-1008,"y":-727,"zoom":2}}',
+  }
+
+  testdata2 = {
+      "name": "test2",
+      "deployed": False,
+      "isPublic": False,
+      "flowData": '{"nodes":[{"width":300,"height":277,"id":"aiPlugin…ges":[],"viewport":{"x":-1008,"y":-727,"zoom":2}}',
+  }
+  response = client.post("http://localhost:3000/api/v1/chatflows", json=testdata1)
+  response = client.post("http://localhost:3000/api/v1/chatflows", json=testdata2)
   print(response.data)
-  # assert response.status_code == 201
+
   # with app.app_context():
-  #   assert User.query.count() == 1
-  #   assert User.query.first().username == 'test'
+  #     print(modelflow.query.all())
 
-# def test_modelflow_get(client, app):
-#   response = client.get('http://localhost:3000/api/v1/chatflows')
-#   # print(response.data)
- 
-
-
+  response = client.get('http://localhost:3000/api/v1/chatflows')
+  # print(response.data)

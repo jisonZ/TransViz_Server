@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, jsonify
 from flask import current_app as app
 from ..extensions import db
-from ..entities.models import modelflow, User
+from ..entities.models import modelflow
 import json 
 
 model = Blueprint('model', __name__)
@@ -14,35 +14,23 @@ def save_chatflow():
   if request.method == 'POST':
     # TODO: is there a way to match the request data to the model?
     # TODO: why it's request.form?
-    print(request.form['isPublic'])
-    print(request.form['deployed'])
-    print(str(request.form['flowData']))
-    # newModelFlow = modelflow(
-    #   id=str('tedtttttttt'),
-    #   name=str(request.form['name']),
-    #   deployed=request.form['deployed'].title() == 'True',
-    #   isPublic=request.form['isPublic'].title() == 'True',
-    #   flowData=str(request.form['flowData'])
-    # )
-    user = User(
-            username="tesrsfssdfdrsdfssdfdteest ",
-            email="smail",
-        )
-    db.session.add(user)
-    db.session.commit()
-    # newModelFlow = modelflow(
-    #   id='testest',
-    #   name='name',
-    #   deployed=True,
-    #   isPublic=True,
-    #   flowData='flowlflow'
-    # )
-    # db.session.add(newModelFlow)
-    # db.session.commit()
-    return "saved", 201
-    return jsonify(newModelFlow)
-    
+    app.logger.info("chatflow post")
+    app.logger.info(request.json)
 
+    newModelFlow = modelflow(
+      name=request.json['name'],
+      deployed=request.json['deployed'],
+      isPublic=request.json['isPublic'],
+      flowData=request.json['flowData']
+    )
+
+    db.session.add(newModelFlow)
+    db.session.commit()
+
+    # TODO: use json maybe?
+    return jsonify(newModelFlow), 201
+    # return {"status": "success"}
+    
   if request.method == 'GET':
-    app.logger.info(request)
-    return "chatflow", 200
+    allmodel = modelflow.query.all()
+    return jsonify(allmodel)

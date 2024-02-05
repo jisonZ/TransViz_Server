@@ -22,13 +22,11 @@ from flask_cors import CORS, cross_origin
 # app.register_blueprint(components)
 
 def create_app(database_uri='sqlite:///db.sqlite3'):
-    print("create app")
     app = Flask(__name__)
     cors = CORS(app)
     app.config['CORS_HEADERS'] = 'Content-Type'
     app.config.from_object(DevelopmentConfig)
 
-    print(f"database_url: {database_uri}")
     app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
     db.init_app(app)
 
@@ -44,9 +42,8 @@ def create_app(database_uri='sqlite:///db.sqlite3'):
     # initialize
     component_init()
     
-
-    # with app.app_context():
-    #     db.drop_all()
-    #     db.create_all()
+    with app.app_context():
+        # db.drop_all()
+        db.create_all()
 
     return app
